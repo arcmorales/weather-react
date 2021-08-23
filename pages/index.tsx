@@ -9,7 +9,6 @@ const Home: React.FC = () => {
     <Container maxWidth="md">
       <Grid container direction="row" justifyContent="center">
         <Grid container>
-          {' '}
           <FreeSolo />
         </Grid>
       </Grid>
