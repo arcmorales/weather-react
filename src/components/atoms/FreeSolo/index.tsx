@@ -10,7 +10,7 @@ interface Places {
   region: string
   url: string
 }
-const FreeSolo: React.FC = () => {
+const FreeSolo: React.FC<{ setPlace: (place: string) => void }> = ({ setPlace }) => {
   const [places, setPlaces] = useState<Places[]>([])
   const getPlaces = async (input: string) => {
     if (input?.length > 2) {
@@ -33,6 +33,10 @@ const FreeSolo: React.FC = () => {
           </>
         )} // dropdown results
         filterOptions={(options) => options}
+        onChange={(_e, value) => {
+          // @ts-ignore
+          setPlace(value?.name)
+        }}
         renderInput={(params) => (
           <TextField
             {...params}
